@@ -76,3 +76,8 @@ rm terraform.tfstate
 
 Set `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in WorkSpace variables.
 ```
+
+
+# Thanks
+
+`.gitignore`: https://github.com/github/gitignore/blob/main/Terraform.gitignore
