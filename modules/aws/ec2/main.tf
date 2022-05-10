@@ -11,7 +11,7 @@ resource "aws_instance" "web" {
   subnet_id = var.subnet_1_id
   associate_public_ip_address = "true"
 
-  tags {
+  tags = {
     Name = "${var.service}-instance"
   }
 }
