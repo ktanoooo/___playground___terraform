@@ -9,7 +9,7 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [var.security_group_id]
 
   subnet_id = var.subnet_1_id
-  associate_public_ip_address = "true"
+  associate_public_ip_address = true
 
   tags = {
     Name = "${var.service}-instance"
