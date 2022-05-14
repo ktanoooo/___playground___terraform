@@ -38,6 +38,18 @@ resource "aws_subnet" "subnet_northeast_1c" {
 }
 
 #
+# aws_internet_gateway
+#   * https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway
+#
+resource "aws_internet_gateway" "internet_gateway" {
+  vpc_id = aws_vpc.main_vpc.vpc_id
+
+  tags = {
+    Name = "${var.service}-internet-gateway"
+  }
+}
+
+#
 # aws_route_table
 #   * https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_route_table
 #
@@ -46,7 +58,7 @@ resource "aws_route_table" "route_table" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = var.internet_gateway_id
+    gateway_id = aws_internet_gateway.internet_gateway.id
   }
 
   tags = {
